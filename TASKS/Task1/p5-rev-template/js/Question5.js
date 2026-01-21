@@ -2,7 +2,7 @@
 let overlap
 let counter = 0
 let radius = 75
-let flib = 100
+let ellipseAlpha = 255
 const s1 = {
     x: 100,
     y: 100,
@@ -23,11 +23,12 @@ const s2 = {
 
 function setup() {
     createCanvas(1000, 1000)
-    console.log("go")
+
 
 }
 
 function draw() {
+    ellipseAlpha = 255
     background(100)
 
 
@@ -39,29 +40,27 @@ function draw() {
     else {
         s1.g = 130
     }
-    // background("black")
-    noFill()
-    stroke("green")
-    strokeWeight(2)
 
-    for (let circles = 0; circles < 10; circles++) {
+
+    // you said in the 3rd bonus you said to change the while to a for, even though you also said only while loops, i am going to use a for loop for this and i hope you accept because it said that i could.
+    for (let circles = 0; circles <= counter; circles++) {
         if (counter < 10) {
-
-            fill(0, 0, 0, flib)
-            ellipse(width / 2, height / 2, counter * 10 + radius)
-
+            ellipseAlpha -= 20
+            fill(255, 255, 255, ellipseAlpha)
+            ellipse(width / 2, height / 2, circles * 10 + radius)
+            console.log(circles)
         }
     }
 
 
 
-    console.log(counter)
 
-    push()
-    noStroke()
-    fill(100, 100, 100)
-    ellipse(width / 2, height / 2, radius)
-    pop()
+
+    // push()
+    // noStroke()
+    // fill(100, 100, 100)
+    // ellipse(width / 2, height / 2, radius)
+    // pop()
 
     displaySquare()
 }
@@ -82,7 +81,7 @@ function checkCollisionWithSquare() {
 }
 
 function mousePressed() {
-    flib -= 20
+
 
     if (overlap)
         counter += 1
