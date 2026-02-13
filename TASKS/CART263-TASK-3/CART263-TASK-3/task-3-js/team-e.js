@@ -1,4 +1,3 @@
-let word = "hello"
 setup_E();
 /** THEME: SARCASM  */
 function setup_E() {
@@ -162,6 +161,32 @@ function setup_E() {
    * **/
   function aniD(parentCanvas) {
     console.log("in ani-D -teamE");
+    const particles = [];
+    for (let i = 0; i < 10; i++) {
+      let particleDiv = document.createElement("div");
+      particleDiv.id = "particle";
+      parentCanvas.appendChild(particleDiv);
+      particleDiv.style.position = "absolute"
+      particleDiv.style.left = (i * 40) + "px";
+      particleDiv.style.top = (i * 30) + "px";
+      particleDiv.style.width = "40px";
+      particleDiv.style.height = "105px";
+      particleDiv.style.background = "aquamarine";
+      let speedX = 20;
+
+      function animate() {
+        let p = parseInt(particleDiv.style.left)
+
+        if (p + speedX >= 350 || p <= -1) {
+          speedX = speedX * -1;
+        }
+        particleDiv.style.left = p + speedX + "px";
+
+        window.requestAnimationFrame(animate);
+
+      }
+      animate();
+    }
   }
 
 }
