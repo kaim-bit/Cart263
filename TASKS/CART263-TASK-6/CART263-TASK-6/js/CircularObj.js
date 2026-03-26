@@ -14,6 +14,7 @@ class CircularObj {
     // its so if the value is "bad" its liek alr i am fine with that and changes
     this.centerX = centerX || 200;
     this.centerY = centerY || 150;
+
     this.orbitRadius = orbitRadius = 3;
     this.beat = 0
     this.maxRadius = radius
@@ -38,12 +39,12 @@ class CircularObj {
   }
 
   update() {
-    // Orbital animation
+    // Orb anim
     this.angle += 0.02;
     this.x = this.centerX + Math.cos(this.angle) * this.orbitRadius;
     this.y = this.centerY + Math.sin(this.angle) * this.orbitRadius;
 
-    // Pulsing radius
+    // beat radius
     this.beat += 0.05;
     this.radius = this.maxRadius + Math.sin(this.beat) * 5;
   }
